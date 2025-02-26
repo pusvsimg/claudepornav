@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "通义千问",
             url: "https://chat.qwenlm.ai/",
-            icon: "fa-brands fa-rocketchat",
+            icon: "fa-solid fa-robot",
             category: "ai-search"
         },
         {
@@ -53,19 +53,19 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "google AIstudio",
             url: "https://aistudio.google.com/",
-            icon: "fa-brands fa-rocketchat",
+            icon: "fa-brands fa-google",
             category: "ai-search"
         },
         {
             name: "claude",
             url: "https://claude.ai/",
-            icon: "fa-brands fa-rocketchat",
+            icon: "fa-solid fa-brain",
             category: "ai-search"
         },
         {
             name: "ChandlerAi",
             url: "https://chandler.bet/",
-            icon: "fa-brands fa-rocketchat",
+            icon: "fa-solid fa-microchip",
             category: "ai-search"
         },
         {
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "heck.ai",
             url: "https://heck.ai/",
-            icon: "fa-brands fa-rocketchat",
+            icon: "fa-solid fa-wand-magic-sparkles",
             category: "ai-search"
         },
         {
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "x.ai",
             url: "https://x.ai/",
-            icon: "fa-brands fa-x-twitter",
+            icon: "fa-solid fa-robot",
             category: "ai-search"
         },
         {
@@ -125,19 +125,19 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "deepseek",
             url: "https://www.deepseek.com/",
-            icon: "fa-brands fa-rocketchat",
+            icon: "fa-solid fa-magnifying-glass-chart",
             category: "ai-search"
         },
         {
             name: "beago.ai",
             url: "https://www.beago.ai/",
-            icon: "fa-brands fa-rocketchat",
+            icon: "fa-solid fa-lightbulb",
             category: "ai-search"
         },
         {
             name: "sigmachat",
             url: "https://sigmabrowser.com/chat",
-            icon: "fa-brands fa-rocketchat",
+            icon: "fa-solid fa-comments",
             category: "ai-search"
         },
         {
@@ -149,13 +149,13 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "lmarena",
             url: "https://lmarena.ai/",
-            icon: "fa-brands fa-rocketchat",
+            icon: "fa-solid fa-robot",
             category: "ai-search"
         },
         {
             name: "kelaode",
             url: "https://kelaode.ai/",
-            icon: "fa-brands fa-rocketchat",
+            icon: "fa-solid fa-message",
             category: "ai-search"
         },
 
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "推特视频下载",
             url: "https://twitterxz.com/",
-            icon: "fa-brands fa-x-twitter",
+            icon: "fa-solid fa-video",
             category: "social"
         },
         {
