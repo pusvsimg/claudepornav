@@ -725,31 +725,64 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Category tabs
     const categoryTabs = document.querySelectorAll('.tab');
-    let currentCategory = 'all';
+    // 修改默认分类为 'ai-search'
+    let currentCategory = 'ai-search';
 
+    // 检查是否存在网站计数和排序元素
+    const sitesCountNumber = document.getElementById('sites-count-number');
+    const sortSelect = document.getElementById('sort-select');
+    
     // Filter and display websites
-    function filterWebsites(category = 'all', searchTerm = '') {
-        sitesContainer.innerHTML = '';
-        const filteredSites = websites.filter(site => {
-            const matchesCategory = category === 'all' || site.category === category;
-            const matchesSearch = site.name.toLowerCase().includes(searchTerm.toLowerCase());
-            return matchesCategory && matchesSearch;
-        });
-
-        filteredSites.forEach(site => {
-            const card = document.createElement('div');
-            card.className = 'site-card';
-            card.innerHTML = `
-                <a href="${site.url}" target="_blank"></a>
-                <i class="${site.icon}"></i>
-                <h3>${site.name}</h3>
-            `;
-            sitesContainer.appendChild(card);
-        });
+    // 移除对网站计数和排序的处理
+    function filterWebsites(category = 'ai-search', searchTerm = '') {
+        // 添加加载动画
+        sitesContainer.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i></div>';
+        
+        // 模拟短暂延迟以显示加载效果
+        setTimeout(() => {
+            sitesContainer.innerHTML = '';
+            const filteredSites = websites.filter(site => {
+                const matchesCategory = site.category === category;
+                const matchesSearch = site.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                                     site.url.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+    
+            // 如果没有搜索结果，显示提示信息
+            if (filteredSites.length === 0) {
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.textContent = '没有找到匹配的网站';
+                sitesContainer.appendChild(noResults);
+                return;
+            }
+    
+            // 排序网站（如果排序选择器存在）
+            if (sortSelect) {
+                const sortValue = sortSelect.value;
+                if (sortValue === 'name-asc') {
+                    filteredSites.sort((a, b) => a.name.localeCompare(b.name));
+                } else if (sortValue === 'name-desc') {
+                    filteredSites.sort((a, b) => b.name.localeCompare(a.name));
+                }
+            }
+    
+            // 显示搜索结果
+            filteredSites.forEach(site => {
+                const card = document.createElement('div');
+                card.className = 'site-card';
+                card.innerHTML = `
+                    <a href="${site.url}" target="_blank"></a>
+                    <i class="${site.icon}"></i>
+                    <h3>${site.name}</h3>
+                `;
+                sitesContainer.appendChild(card);
+            });
+        }, 300); // 300ms 的加载动画
     }
 
-    // Initialize
-    filterWebsites();
+    // Initialize with 'ai-search' category
+    filterWebsites(currentCategory);
 
     // Event listeners
     searchInput.addEventListener('input', () => {
@@ -768,6 +801,13 @@ document.addEventListener('DOMContentLoaded', function() {
             filterWebsites(currentCategory, searchInput.value);
         });
     });
+
+    // 添加排序事件监听器（如果排序选择器存在）
+    if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+            filterWebsites(currentCategory, searchInput.value);
+        });
+    }
 
     themeToggleBtn.addEventListener('click', () => {
         document.body.classList.toggle('dark-theme');

@@ -28,7 +28,7 @@
                 y2="100%"
               >
                 <stop offset="0%" stop-color="#f90" />
-                <stop offset="100%" stop-color="#ff5e00" />
+                <stop offset="100%" stop-color="#ff7e30" />
               </linearGradient>
               <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
                 <feDropShadow
@@ -75,16 +75,19 @@
         </div>
       </header>
 
-      <div class="category-tabs">
-        <button class="tab active" data-category="all">全部</button>
-        <button class="tab" data-category="ai-search">AI搜索</button>
-        <button class="tab" data-category="social">社交媒体</button>
-        <button class="tab" data-category="tools">实用工具</button>
-        <button class="tab" data-category="tech-news">科技资讯</button>
-        <button class="tab" data-category="cloud-storage">云存储</button>
-        <button class="tab" data-category="email">电子邮箱</button>
+      <div class="category-tabs-container">
+        <h2 class="category-heading">网站分类</h2>
+        <div class="category-tabs">
+          <!-- 移除了 "全部" 标签，并将 "AI搜索" 设为默认选中 -->
+          <button class="tab active" data-category="ai-search">AI搜索</button>
+          <button class="tab" data-category="social">社交媒体</button>
+          <button class="tab" data-category="tools">实用工具</button>
+          <button class="tab" data-category="tech-news">科技资讯</button>
+          <button class="tab" data-category="cloud-storage">云存储</button>
+          <button class="tab" data-category="email">电子邮箱</button>
+        </div>
       </div>
-
+      
       <main id="sites-container">
         <!-- 网站卡片将由JavaScript动态渲染 -->
       </main>
